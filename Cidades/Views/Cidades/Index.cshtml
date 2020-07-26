@@ -1,0 +1,29 @@
+﻿@model IGrid<Cidades.Domain.Cidades>
+
+@{
+    ViewData["Title"] = "Cidades";
+}
+
+<h1></h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Nova Cidade</a>
+</p>
+
+<div class="card" style="width: 50rem;">
+    
+    <div class="card-body">
+        <h5 class="card-title"></h5>
+        <p class="card-text">Para gerar um relatório é necessário fazer os filtros nos headers das colunas e selecionar a quantidade de registros por página.
+        O resultado do relatório será idêndico ao apresentado na tabela.
+        </p>
+        <a href="@(Url.Action("ExportIndex") + ViewContext.HttpContext.Request.QueryString)"
+           class="btn btn-info">Gerar relatório</a>
+    </div>
+</div>
+
+<p>
+  
+</p>
+
+@(new HtmlGrid<Cidades.Domain.Cidades>(Html, Model))
